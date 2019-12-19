@@ -1,0 +1,60 @@
+<div class="container animated fadeIn" >
+        <div class="row row-form d-flex justify-content-center align-items-center">
+            <div class="col-11">
+              <div class="card">
+                <div class="card-body">
+                    <form [formGroup]="registroForm" (ngSubmit)="onSubmit()" >
+                        <div class="form-group">
+                          <label for="nombre">Nombres <span>*</span></label>
+                          <input type="text" class="form-control" id="nombre" aria-describedby="emailHelp" formControlName="nombre">
+                          <small *ngIf="registroForm.value['nombre'] == '' && registroForm.controls['nombre'].touched" id="emailHelp" class="text-danger animated fadeIn">Este campo es requerido</small>
+                        </div>
+                        <div class="form-group">
+                          <label for="apellido">Apellido <span>*</span></label>
+                          <input type="text" class="form-control" id="apellido" aria-describedby="emailHelp" formControlName="apellido">
+                          <small *ngIf="registroForm.value['apellido'] == '' && registroForm.controls['apellido'].touched" id="emailHelp" class="text-danger animated fadeIn">Este campo es requerido</small>
+                        </div>
+      
+                        <div class="form-group">
+                          <label for="email">Email <span>*</span></label>
+                          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" formControlName="email">
+                          <small *ngIf="registroForm.value['email'] == '' && registroForm.controls['email'].touched" id="emailHelp" class="text-danger animated fadeIn">Este campo es requerido</small>
+                        </div>
+      
+                        <div class="form-group">
+                          <label for="password1">Contraseña <span>*</span></label>
+                          <input type="password" class="form-control" id="password1" formControlName="password1">
+                          <small class="text-success" [ngClass]="{'text-danger': registroForm.controls['password1'].errors}">La contraseña debe tener al menos 8 caracteres <i class="fas fa-check-circle"></i></small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password2">Reingresa Contraseña <span>*</span></label>
+                            <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password2">
+                            <small class="text-success" *ngIf="registroForm.value['password1'] == registroForm.value['password2'] && registroForm.value['password1'] != '' && registroForm.value['password2'] != ''">Las contraseñas coinciden</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Selecciona Especialidad</label>
+                            <select class="custom-select" formControlName="especialidad">
+                                <option value="">-- Seleccione --</option>
+                                <option *ngFor="let item of especialidad" [value]="item.toLowerCase()"> {{item}} </option>
+                              </select>
+                        </div>
+      
+                        <div class="form-group form-check">
+                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                          <label class="form-check-label" for="exampleCheck1">Recordame</label>
+                        </div>
+                        <div class="form-group">
+                            <a [routerLink]="['/login']" >¿Ya tienes cuenta?</a>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block" [disabled]="!registroForm.valid">Registrate</button>
+                                
+                      </form>
+                </div>
+              </div>
+            </div>
+          </div>
+</div>
+  
