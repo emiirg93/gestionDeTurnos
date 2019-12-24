@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormBuilder } from '@angular/forms';
+import { usuarioModel } from '../../models/usuario.model';
 
 @Component({
   selector: 'app-sign-in',
@@ -9,6 +10,7 @@ import { Validators, FormBuilder } from '@angular/forms';
 export class SignInComponent implements OnInit {
 
   especialidad:String[] = ["Peluqueria","Manicura","alisado"]
+  usuario:usuarioModel;
 
   constructor(private fb:FormBuilder) { }
 
@@ -26,7 +28,12 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.registroForm);
+    this.usuario = new usuarioModel();
+    console.log(this.usuario.nombre);
+  }
+
+  asignar(form:FormBuilder){
+    this.usuario.nombre = this.registroForm.get('nombre').value;
   }
 
 }

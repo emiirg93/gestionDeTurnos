@@ -24,13 +24,14 @@
                         <div class="form-group">
                           <label for="password1">Contraseña <span>*</span></label>
                           <input type="password" class="form-control" id="password1" formControlName="password1">
-                          <small class="text-success" [ngClass]="{'text-danger': registroForm.controls['password1'].errors}">La contraseña debe tener al menos 8 caracteres <i class="fas fa-check-circle"></i></small>
+                          <small *ngIf="!registroForm.get('password1').pristine" class="text-success" [ngClass]="{'text-danger': registroForm.controls['password1'].errors}">La contraseña debe tener al menos 8 caracteres <i *ngIf="registroForm.controls['password1'].errors" class="fas fa-times-circle"></i> <i *ngIf="!registroForm.controls['password1'].errors" class="fas fa-check-circle"></i></small>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group animated fadeIn" *ngIf="!registroForm.get('password1').pristine && !registroForm.controls['password1'].errors">
                             <label for="password2">Reingresa Contraseña <span>*</span></label>
                             <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password2">
                             <small class="text-success" *ngIf="registroForm.value['password1'] == registroForm.value['password2'] && registroForm.value['password1'] != '' && registroForm.value['password2'] != ''">Las contraseñas coinciden</small>
+                            <small class="text-danger" *ngIf="registroForm.value['password1'] != registroForm.value['password2'] && !registroForm.get('password2').errors">Las contraseñas no coinciden</small>
                         </div>
 
                         <div class="form-group">
