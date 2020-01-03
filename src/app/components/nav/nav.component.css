@@ -1,0 +1,27 @@
+.navegacion {
+  -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px 1px #000000bf;
+  background-color: rgba(0, 0, 0, 0.253);
+  border-bottom: none;
+}
+
+.navegacion-body {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.links a {
+  margin-right: 5px;
+}
+
+img {
+  margin-top: 10px;
+  width: 60px;
+}

@@ -22,7 +22,9 @@ export class AuthService {
     this.leerToken();
   }
 
-  logOut() {}
+  logOut() {
+    localStorage.removeItem('token');
+  }
 
   logIn(usuario: usuarioModel) {
     const authData = {

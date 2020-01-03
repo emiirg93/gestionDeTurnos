@@ -10,13 +10,15 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 
 import { HttpClientModule } from "@angular/common/http";
 import { HomeComponent } from './components/home/home.component';
+import { NavComponent } from './components/nav/nav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignInComponent,
-    HomeComponent
+    HomeComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
