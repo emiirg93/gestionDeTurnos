@@ -21,7 +21,7 @@
     "@angular/router": "~8.2.14",
     "animate.css": "^3.7.2",
     "bootstrap": "^4.4.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "materialize-css": "^1.0.0-rc.2",
     "popper.js": "^1.16.0",
     "rxjs": "~6.4.0",
